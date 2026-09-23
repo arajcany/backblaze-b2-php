@@ -47,7 +47,7 @@ class RetryMiddleware
         return static function (
             int $retries,
             RequestInterface $request,
-            ResponseInterface $response = null,
+            ?ResponseInterface $response = null,
             $exception = null
         ) use ($config): bool {
             // Only retry allowed status codes.

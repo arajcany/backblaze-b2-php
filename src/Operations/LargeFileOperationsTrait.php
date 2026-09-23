@@ -300,7 +300,7 @@ trait LargeFileOperationsTrait
 	 */
 	public function listAllParts(
 		string $fileId,
-		int $startPartNumber = null
+		?int $startPartNumber = null
 	): iterable {
 		$allParts = new FileList();
 		$nextPartNumber = $startPartNumber ?? 0;

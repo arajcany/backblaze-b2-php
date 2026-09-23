@@ -207,7 +207,7 @@ trait BucketOperationsTrait
 	 * 
 	 * @throws NoResultsException 
 	 */
-	public function getBucketByName(string $bucketName, array $bucketTypes = null): Bucket
+	public function getBucketByName(string $bucketName, ?array $bucketTypes = null): Bucket
 	{
 		$response = $this->listBuckets(null, $bucketName, $bucketTypes);
 

@@ -87,7 +87,7 @@ class LargeFileUpload
 		return $this;
 	}
 
-	public function withEncryption(ServerSideEncryption $sse = null): LargeFileUpload
+	public function withEncryption(?ServerSideEncryption $sse = null): LargeFileUpload
 	{
 		$this->serverSideEncryption = $sse ?? new ServerSideEncryption();
 

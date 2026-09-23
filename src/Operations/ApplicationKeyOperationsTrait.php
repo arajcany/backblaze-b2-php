@@ -39,7 +39,7 @@ trait ApplicationKeyOperationsTrait
 	 */
 	public function createKey(
 		string $keyName,
-		array $capabilities = null,
+		?array $capabilities = null,
 		?int $validDuration = null,
 		?string $bucketId = null,
 		?string $namePrefix = null
@@ -115,7 +115,7 @@ trait ApplicationKeyOperationsTrait
 	 * @see Client::listKeys()
 	 */
 	public function listAllKeys(
-		string $startApplicationKeyId = null
+		?string $startApplicationKeyId = null
 	): KeyList {
 		$allKeys = new KeyList();
 
