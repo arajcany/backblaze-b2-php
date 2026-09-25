@@ -22,6 +22,7 @@ class Config
 		'maxRetryDelay' => 64,
 		'maxFileCount' => 1000,
 		'maxKeyCount' => 1000,
+		'verify' => true,
 		'useSSEHeaders' => false,
 	];
 
@@ -111,6 +112,12 @@ class Config
 	 */
 	private $authorizationCache;
 
+	/**
+	 * Guzzle `verify` request option - path to a CA bundle, or a bool to enable/disable SSL verification.
+	 * @var bool|string
+	 */
+	private $verify;
+
 	/** @var \Zaxbux\BackblazeB2\Object\AccountAuthorization */
 	//private $accountAuthorization;
 
@@ -169,6 +176,12 @@ class Config
 		return $this->maxRetries;
 	}
 
+	/** @return bool|string */
+	public function verify()
+	{
+		return $this->verify;
+	}
+
 	public function maxRetryDelay(): int
 	{
 		return $this->maxRetryDelay();
@@ -205,5 +218,6 @@ class Config
 		$this->maxKeyCount = $options['maxKeyCount'];
 		$this->applicationName = $options['applicationName'];
 		$this->authorizationCache = $options['authorizationCache'] ?? new BuiltinAuthorizationCache();
+		$this->verify = $options['verify'];
 	}
 }

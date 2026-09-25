@@ -164,6 +164,7 @@ class Client
 			'http_errors' => $this->config->useHttpErrors ?? false,
 			'allow_redirects' => false,
 			'handler' => $stack,
+			'verify' => $this->config->verify(),
 			'headers' => [
 				'User-Agent'   => Utils::getUserAgent($this->config->applicationName()),
 			],

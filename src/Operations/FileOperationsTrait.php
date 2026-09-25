@@ -258,7 +258,7 @@ trait FileOperationsTrait
 	public function updateFileLegalHold(
 		string $fileId,
 		?string $fileName = null,
-		string $legalHold
+		string $legalHold = ''
 	): File {
 		$response = $this->http->request('POST', Endpoint::UPDATE_FILE_LEGAL_HOLD, [
 			'json' => Utils::filterRequestOptions([
@@ -288,7 +288,7 @@ trait FileOperationsTrait
 	public function updateFileRetention(
 		string $fileId,
 		?string $fileName = null,
-		array $fileRetention,
+		array $fileRetention = [],
 		?bool $bypassGovernance = false
 	): File {
 		$response = $this->http->request('POST', Endpoint::UPDATE_FILE_RETENTION, [

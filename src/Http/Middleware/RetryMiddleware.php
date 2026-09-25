@@ -50,6 +50,13 @@ class RetryMiddleware
             ?ResponseInterface $response = null,
             $exception = null
         ) use ($config): bool {
+            // A null response means a connection-level failure (DNS, TLS, timeout, etc.)
+            // rather than an HTTP response - nothing to retry against here, so let the
+            // original exception propagate normally instead of crashing on null.
+            if ($response === null) {
+                return false;
+            }
+
             // Only retry allowed status codes.
             if (!in_array($response->getStatusCode(), static::RETRY_STATUS_CODES)) {
                 return false;

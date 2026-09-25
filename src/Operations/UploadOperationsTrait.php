@@ -60,7 +60,7 @@ trait UploadOperationsTrait
 	public function uploadFile(
 		string $fileName,
 		?string $bucketId = null,
-		$body,
+		$body = null,
 		?string $contentType = null,
 		$fileInfo = null,
 		$serverSideEncryption = null,
